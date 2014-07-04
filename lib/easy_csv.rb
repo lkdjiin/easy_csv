@@ -1,5 +1,5 @@
 require "easy_csv/version"
+require "easy_csv/field"
 
 module EasyCsv
-  # Your code goes here...
 end
