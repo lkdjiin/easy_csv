@@ -18,7 +18,7 @@ Or install it yourself as:
 
     $ gem install easy_csv
 
-## Quick Tutorial
+## Tutorial
 
 ### Les champs
 
@@ -85,7 +85,7 @@ ou encore:
 
     report = Report['Products']
 
-Un rapport à un nom par défaut:
+Un rapport a un nom par défaut:
 
     Report.new #=> 'Report #1'
     Report.new #=> 'Report #2'
@@ -111,6 +111,9 @@ Si on essaye d'afficher le rapport à ce stade, on obtient une erreur:
     puts report
     #=> EasyCsv::Report::FieldsSizeError
 
+En effet, tous les champs doivent avoir la même taille pour que le rapport
+soit valide.
+
 Mais on peut quand même l'obtenir avec `debug`, les données manquantes
 sont symbolisées par un point:
 
@@ -122,13 +125,14 @@ sont symbolisées par un point:
     #=>       3333 , .    , .
     #=>       4444 , .    , .
 
-On va remplir nos données, rappelez vous que tous devient une chaine:
+On va remplir nos données, rappelez vous que tout devient une chaine:
 
     name_field << ['Small thing', 'Big thing', 'Little thing', 'A thing']
     color_field << [:black, :white, :red, :green]
 
     puts report
     #=> Product ID , Name         , Color
+    #=> ---------------------------------
     #=>       1234 , Small thing  , black
     #=>       2345 , Big thing    , white
     #=>       3333 , Little thing , red
