@@ -30,4 +30,7 @@ module EasyCsv
 
     attr_reader :data
   end
+
+  class FieldsSizeError < StandardError
+  end
 end
