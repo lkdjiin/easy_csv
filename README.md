@@ -140,7 +140,7 @@ On va remplir nos données, rappelez vous que tout devient une chaine:
 
 ### Ordre des champs dans un rapport
 
-Les champs dans un rapport on un ordre:
+Les champs dans un rapport ont un ordre:
 
     puts report.fields_order
     #=> Fields order for Product report
