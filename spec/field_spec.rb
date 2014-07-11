@@ -68,4 +68,19 @@ describe Field do
     end
   end
 
+  describe 'order' do
+
+    it 'has an order of 0 at creation' do
+      field = Field['Foo']
+      expect(field.order).to eq 0
+    end
+
+    it 'sets his order' do
+      field = Field['Foo']
+      field.order = 2
+      expect(field.order).to eq 2
+    end
+
+  end
+
 end

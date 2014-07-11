@@ -47,15 +47,49 @@ describe Report do
     end
   end
 
+  describe 'fields order' do
+
+    it 'sets the first field at 1' do
+      field = Field['Foo']
+      report = Report['Report']
+      report << field
+      expect(field.order).to eq 1
+    end
+
+    it 'sets many fields in sequence' do
+      field1 = Field['Foo']
+      field2 = Field['Bar']
+      report = Report['Report']
+      report << [field1, field2]
+      expect(field1.order).to eq 1
+      expect(field2.order).to eq 2
+    end
+
+  end
+
   describe 'to_s' do
     it 'raises an error if not all fields have same size' do
       report = Report['Report']
       field = Field['Foo']
       field << [1, 2, 3]
+      report << field
       field = Field['Bar']
       field << 1
+      report << field
 
       expect{report.to_s}.to raise_error(FieldsSizeError)
+    end
+
+    it 'returns a «readable» report' do
+      report = Report['Report']
+      field = Field['ID']
+      field << [1, 2, 3]
+      report << field
+      field = Field['Name']
+      field << %w( Foo Bar Baz )
+      report << field
+
+      expect(report.to_s).to start_with("ID , Name\n")
     end
   end
 
@@ -64,14 +98,16 @@ describe Report do
       report = Report['Report']
       field = Field['Foo']
       field << [1, 2, 3]
+      report << field
       field = Field['Bar']
       field << 1
+      report << field
 
       expect(report.debug).to eq "Foo , Bar\n" +
-                                "---------\n" +
-                                "  1 ,   1\n" +
-                                "  2 , .\n" +
-                                "  3 , .\n"
+                                 "---------\n" +
+                                 "  1 ,   1\n" +
+                                 "  2 , .\n" +
+                                 "  3 , .\n"
     end
   end
 end

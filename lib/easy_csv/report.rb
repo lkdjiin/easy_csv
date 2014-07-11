@@ -16,12 +16,16 @@ module EasyCsv
         @name = name
       end
       @fields = {}
+      @current_sequence = 0
     end
 
     attr_reader :name
 
     def <<(fields)
-      [*fields].each {|field| @fields[field.header] = field }
+      [*fields].each do |field|
+        field.order = next_sequence
+        @fields[field.header] = field
+      end
     end
 
     def field(name)
@@ -29,11 +33,24 @@ module EasyCsv
     end
 
     def to_s
-      raise FieldsSizeError
+      if @fields.values.map {|field| field.data.size }.uniq.size != 1
+        raise FieldsSizeError
+      else
+        ReadableReportRenderer.new(@fields).render
+      end
     end
 
     def debug
       "Foo , Bar\n---------\n  1 ,   1\n  2 , .\n  3 , .\n"
     end
+
+    private
+
+    def next_sequence
+      @current_sequence += 1
+      @current_sequence
+    end
+
   end
+
 end

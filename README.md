@@ -142,7 +142,7 @@ On va remplir nos données, rappelez vous que tout devient une chaine:
 
 Les champs dans un rapport ont un ordre:
 
-    puts report.fields_order
+    puts report.order
     #=> Fields order for Product report
     #=> -------------------------------
     #=> 1 Product ID
@@ -151,8 +151,8 @@ Les champs dans un rapport ont un ordre:
 
 On peut modifier l'ordre des champs:
 
-    report.order(2, 'Color')
-    puts report.fields_order
+    report.order = [2, 'Color']
+    puts report.order
     #=> Fields order for Product report
     #=> -------------------------------
     #=> 1 Product ID
@@ -162,10 +162,9 @@ On peut modifier l'ordre des champs:
 On peut modifier l'ordre de plusieurs champs d'un coup (ou bien tous).
 Toutes les méthodes qui suivent sont équivalentes:
 
-    report.order(1, 'Color', 2, 'Name', 3, 'Product ID')
-    report.order([1, 'Color', 2, 'Name', 3, 'Product ID'])
-    report.order([{1 => 'Color'}, {2 => 'Name'}, {3 => 'Product ID'}])
-    report.order({1 => 'Color', 2 => 'Name', 3 => 'Product ID'})
+    report.order = [1, 'Color', 2, 'Name', 3, 'Product ID']
+    report.order = [{1 => 'Color'}, {2 => 'Name'}, {3 => 'Product ID'}]
+    report.order = {1 => 'Color', 2 => 'Name', 3 => 'Product ID'}
 
 ### Rendering final
 
