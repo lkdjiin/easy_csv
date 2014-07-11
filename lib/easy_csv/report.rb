@@ -41,7 +41,7 @@ module EasyCsv
     end
 
     def debug
-      "Foo , Bar\n---------\n  1 ,   1\n  2 , .\n  3 , .\n"
+      DebugReportRenderer.new(@fields).render
     end
 
     private

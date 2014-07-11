@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe ReadableReportRenderer do
 
-  it 'Readable report #1' do
+  specify 'Readable report #1' do
     id_field = Field['ID']
     id_field << [1, 2, 3]
     name_field = Field['Name']
@@ -19,7 +19,7 @@ describe ReadableReportRenderer do
                                   " 3 , Baz "
   end
 
-  it 'Readable report #2' do
+  specify 'Readable report #2' do
     id_field = Field['Product ID']
     id_field << [1, 2, 3]
     name_field = Field['Name']
