@@ -1,6 +1,6 @@
 module EasyCsv
 
-  class BaseRenderer
+  class BaseReportRenderer
 
     # fields - Hash. Keys are field header and values are Field.
     def initialize(fields)

@@ -1,7 +1,7 @@
 module EasyCsv
 
   # Report rendering even if the size of the columns are not the same.
-  class DebugReportRenderer < BaseRenderer
+  class DebugReportRenderer < BaseReportRenderer
 
     # fields - Hash. Keys are field header and values are Field.
     def initialize(fields)
