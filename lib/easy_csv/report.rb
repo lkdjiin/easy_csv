@@ -44,6 +44,10 @@ module EasyCsv
       DebugReportRenderer.new(@fields).render
     end
 
+    def order
+      FieldsOrderRenderer.new(@fields, name).render
+    end
+
     private
 
     def next_sequence
