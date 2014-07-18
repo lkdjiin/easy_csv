@@ -51,9 +51,9 @@ module EasyCsv
       end
     end
 
-    def columns_to_lines
+    def columns_to_lines(separator = ' , ')
       @lines = @columns.first.zip(*@columns[1..-1])
-      @lines.map! {|item| item.join(' , ') }
+      @lines.map! {|item| item.join(separator) }
     end
 
     def inject_underline

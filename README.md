@@ -149,6 +149,8 @@ Les champs dans un rapport ont un ordre:
     #=> 2 Name
     #=> 3 Color
 
+*COMING SOON :*
+
 On peut modifier l'ordre des champs:
 
     report.order = [2, 'Color']
@@ -180,7 +182,7 @@ fichier, on utilise la méthode `render`:
 
 C'est moins lisible, hein ?
 
-### Les tests
+### Les tests ( *COMING SOON* )
 
 EasyCsv est cool pour produire des fichiers CSV, mais aussi et surtout pour
 *tester* une telle production.

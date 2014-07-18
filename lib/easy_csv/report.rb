@@ -48,6 +48,10 @@ module EasyCsv
       FieldsOrderRenderer.new(@fields, name).render
     end
 
+    def render
+      RealReportRenderer.new(@fields).render
+    end
+
     private
 
     def next_sequence
