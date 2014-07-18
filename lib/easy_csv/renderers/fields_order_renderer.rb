@@ -1,12 +1,29 @@
 module EasyCsv
 
+  # Render the fields ordering of a CSV report.
   class FieldsOrderRenderer
 
-    def initialize(fields, report_name)
-      @fields = fields
-      @report_name = report_name
+    # Public: Creates a new FieldsOrderRenderer.
+    #
+    # report - A {Report}.
+    def initialize(report)
+      @fields = report.fields
+      @report_name = report.name
     end
 
+    # Public: Render the fields' ordering of a report.
+    #
+    # Examples
+    #
+    #   renderer = FieldsOrderRenderer.new(a_report)
+    #   renderer.render
+    #   #=> Fields order for Test report
+    #   #=> ----------------------------
+    #   #=> 1 Name of first field
+    #   #=> 2 Name of second field
+    #   #=> 3 Name of third field
+    #
+    # Returns a String.
     def render
       [ header, StringHelper.underline(header), *data ].join("\n")
     end

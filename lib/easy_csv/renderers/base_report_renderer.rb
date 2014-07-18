@@ -1,7 +1,10 @@
 module EasyCsv
 
+  # Holds common machinery to render CSV reports.
   class BaseReportRenderer
 
+    # Public: Creates a new BaseReportRenderer.
+    #
     # fields - Hash. Keys are field header and values are Field.
     def initialize(fields)
       @fields = fields
@@ -9,6 +12,9 @@ module EasyCsv
       @lines = []
     end
 
+    # Base method to render a CSV report.
+    #
+    # Returns a String.
     def render
       max_string_size_for_each_column.each_with_index do |size, index|
         pad_strings(size, index)

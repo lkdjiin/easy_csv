@@ -8,5 +8,7 @@ require "easy_csv/renderers/real_report_renderer"
 require "easy_csv/renderers/fields_order_renderer"
 require "easy_csv/helpers/string_helper"
 
+# Public: EasyCsv is a CSV file builder. It focuses on fields/columns
+# instead of lines.
 module EasyCsv
 end
