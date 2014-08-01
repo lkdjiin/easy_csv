@@ -14,12 +14,12 @@ describe Field do
       expect(field.header).to eq 'Foo'
     end
 
-    it 'has a default header' do
+    it 'alphabetically increases the default header' do
       field1 = Field.new
       field2 = Field.new
-      expect(field1.header).to eq 'A'
       expect(field2.header).to eq 'B'
     end
+
   end
 
   describe 'to_s' do
