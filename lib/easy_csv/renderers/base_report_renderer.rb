@@ -16,9 +16,7 @@ module EasyCsv
     #
     # Returns a String.
     def render
-      max_string_size_for_each_column.each_with_index do |size, index|
-        pad_strings(size, index)
-      end
+      pad_columns
       columns_to_lines
       inject_underline
       @lines.join("\n")
@@ -35,21 +33,25 @@ module EasyCsv
       ds.first.zip(*ds[1..-1])
     end
 
-    def max_string_size_for_each_column
-      sizes = []
-      @columns.each do |column|
-        sizes << column.map(&:size).max
+    def pad_columns
+      max_string_size_for_each_column.each_with_index do |size, index|
+        pad_a_column(size, @columns[index])
       end
-      sizes
     end
 
-    def pad_strings(size, index)
-      @columns[index].map! do |string|
-        if StringHelper.numeric?(string)
-          "%#{size}s" % string
-        else
-          "%-#{size}s" % string
-        end
+    def max_string_size_for_each_column
+      @columns.dup.map {|column| column.map(&:size).max }
+    end
+
+    def pad_a_column(size, column)
+      column.map! {|string| pad_a_string(string, size) }
+    end
+
+    def pad_a_string(string, size)
+      if StringHelper.numeric?(string)
+        "%#{size}s" % string
+      else
+        "%-#{size}s" % string
       end
     end
 
