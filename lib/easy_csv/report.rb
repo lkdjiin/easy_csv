@@ -97,6 +97,13 @@ module EasyCsv
       RealReportRenderer.new(@fields).render
     end
 
+    # Public: Get a {ReportHeader} object, mostly to testing purposes.
+    #
+    # Returns a {ReportHeader}.
+    def header
+      ReportHeader.new(@fields)
+    end
+
     private
 
     def next_sequence

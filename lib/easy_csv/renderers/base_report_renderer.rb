@@ -27,11 +27,7 @@ module EasyCsv
     private
 
     def fields_to_columns
-      header.zip(*data)
-    end
-
-    def header
-      @fields.values.sort_by {|field| field.order}.map(&:header)
+      ReportHeader.headers(@fields).zip(*data)
     end
 
     def data
