@@ -1,4 +1,5 @@
 require "easy_csv/version"
+require "easy_csv/data_equality"
 require "easy_csv/field"
 require "easy_csv/report"
 require "easy_csv/report_header"

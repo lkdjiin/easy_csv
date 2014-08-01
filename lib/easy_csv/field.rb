@@ -62,8 +62,12 @@ module EasyCsv
       [*values].each {|value| @data << value.to_s }
     end
 
-    # Get all data of this field.
-    attr_reader :data
+    # Public: Get all data of this field.
+    #
+    # Returns an Array of String.
+    def data
+      @data.extend(DataEquality)
+    end
 
     # Get the Fixnum order of this field inside a report. If #order
     # returns 0, the field is orphan (it isn't attached to a report).

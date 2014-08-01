@@ -63,10 +63,27 @@ describe Field do
     it 'uses << to add a list of values' do
       field = Field['Foo']
       field << [111, 222]
-      expect(field.data[0]).to eq '111'
-      expect(field.data[1]).to eq '222'
+      expect(field.data.last).to eq '222'
+    end
+
+    describe 'equality' do
+
+      it 'matches an array of string' do
+        field = Field['Foo']
+        field << [111, 222]
+        expect(field.data).to eq %w( 111
+                                     222 )
+      end
+
+      it 'matches an array of number' do
+        field = Field['Foo']
+        field << [111, 222]
+        expect(field.data).to eq [ 111, 222 ]
+      end
+
     end
   end
+
 
   describe 'order' do
 
