@@ -151,22 +151,22 @@ Les champs dans un rapport ont un ordre:
 
 *COMING SOON :*
 
-On peut modifier l'ordre des champs:
+    On peut modifier l'ordre des champs:
 
-    report.order = [2, 'Color']
-    puts report.order
-    #=> Fields order for Product report
-    #=> -------------------------------
-    #=> 1 Product ID
-    #=> 2 Color
-    #=> 3 Name
+        report.order = [2, 'Color']
+        puts report.order
+        #=> Fields order for Product report
+        #=> -------------------------------
+        #=> 1 Product ID
+        #=> 2 Color
+        #=> 3 Name
 
-On peut modifier l'ordre de plusieurs champs d'un coup (ou bien tous).
-Toutes les méthodes qui suivent sont équivalentes:
+    On peut modifier l'ordre de plusieurs champs d'un coup (ou bien tous).
+    Toutes les méthodes qui suivent sont équivalentes:
 
-    report.order = [1, 'Color', 2, 'Name', 3, 'Product ID']
-    report.order = [{1 => 'Color'}, {2 => 'Name'}, {3 => 'Product ID'}]
-    report.order = {1 => 'Color', 2 => 'Name', 3 => 'Product ID'}
+        report.order = [1, 'Color', 2, 'Name', 3, 'Product ID']
+        report.order = [{1 => 'Color'}, {2 => 'Name'}, {3 => 'Product ID'}]
+        report.order = {1 => 'Color', 2 => 'Name', 3 => 'Product ID'}
 
 ### Rendering final
 
@@ -182,7 +182,7 @@ fichier, on utilise la méthode `render`:
 
 C'est moins lisible, hein ?
 
-### Les tests ( *COMING SOON* )
+### Les tests
 
 EasyCsv est cool pour produire des fichiers CSV, mais aussi et surtout pour
 *tester* une telle production.
@@ -213,9 +213,11 @@ Ou comme ceci:
                               3333
                               4444 )
 
-Et pourquoi pas tester une donnée particulière:
+*COMING SOON*
 
-    product_field.data[1] == 2345
+    Et pourquoi pas tester une donnée particulière:
+
+        product_field.data[1] == 2345
 
 ## Contributing
 
